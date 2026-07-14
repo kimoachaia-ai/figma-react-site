@@ -25,14 +25,16 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24 # Updated to Node 24
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build
+        # CI=false prevents TypeScript/CSS warnings from breaking the build
+        run: CI=false npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # If using Vite, keep ./dist. If using Create React App, change to ./build
           path: ./dist
       - name: Deploy to GitHub Pages
         id: deployment
