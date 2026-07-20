@@ -1,4 +1,3 @@
-#try again
 name: Deploy static content to Pages
 
 on:
@@ -28,14 +27,13 @@ jobs:
         with:
           node-version: 24
       - name: Install dependencies
-        # Changed from npm ci to npm install because package-lock.json is missing
         run: npm install
       - name: Build
+        # CI=false prevents styling warnings from triggering a build crash
         run: CI=false npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # If using Vite, keep ./dist. If using Create React App, change to ./build
           path: ./dist
       - name: Deploy to GitHub Pages
         id: deployment
