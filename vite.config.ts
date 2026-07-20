@@ -24,7 +24,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/figma-react-site/',
   resolve: {
     alias: {
       // Alias @ to the src directory

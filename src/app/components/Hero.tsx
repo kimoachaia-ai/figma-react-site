@@ -1,5 +1,7 @@
 import { ArrowRight, Calendar, Shield } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import flooringImg from "../../imports/parquet_home_page_me.png";
+import kitchenImg from "../../imports/ChatGPT_Image_Jun_17__2026__01_19_10_PM.png";
 
 export function Hero() {
   return (
@@ -130,8 +132,8 @@ export function Hero() {
               {/* Middle Circle */}
               <div className="absolute top-32 left-0 w-[340px] h-[340px] rounded-full overflow-hidden shadow-2xl border-4 border-[#C4A57B]/20">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1585128792020-803d29415281?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXJkd29vZCUyMGZsb29yaW5nJTIwbGFtaW5hdGUlMjBmbG9vcnxlbnwxfHx8fDE3ODM5NDg2MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Hardwood flooring"
+                  src={flooringImg}
+                  alt="Laminate flooring"
                   className="w-full h-full object-cover scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#C4A57B]/10 to-transparent" />
@@ -140,8 +142,8 @@ export function Hero() {
               {/* Bottom Circle */}
               <div className="absolute bottom-0 right-12 w-[280px] h-[280px] rounded-full overflow-hidden shadow-2xl border-4 border-[#C4A57B]/20">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1587006158786-7b79525a2147?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZnVybml0dXJlJTIwc2hvd3Jvb20lMjBpbnRlcmlvcnxlbnwxfHx8fDE3ODM5NDg2Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Wood furniture"
+                  src={kitchenImg}
+                  alt="Custom kitchen installation"
                   className="w-full h-full object-cover scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#C4A57B]/10 to-transparent" />

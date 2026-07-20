@@ -3,12 +3,15 @@ import {
   Layers,
   FlipHorizontal,
   Armchair,
+  Settings2,
 } from "lucide-react";
+import { Link } from "react-router";
 
 const products = [
   {
     icon: DoorOpen,
     title: "Doors",
+    to: "/products/doors",
     description:
       "A complete range of interior and exterior doors combining beauty with lasting durability — from classic wood to modern steel options.",
     features: [
@@ -22,6 +25,7 @@ const products = [
   {
     icon: Layers,
     title: "Wood Panels & Materials",
+    to: "/products/wood-panels",
     description:
       "Premium engineered and natural wood panels for construction, furniture making, and interior finishing projects of all scales.",
     features: [
@@ -35,6 +39,7 @@ const products = [
   {
     icon: FlipHorizontal,
     title: "Lumber & Veneer",
+    to: "/products/lumber-veneer",
     description:
       "Solid lumber and logs sourced globally, alongside high-quality natural and engineered veneer with edge banding solutions.",
     features: [
@@ -47,6 +52,7 @@ const products = [
   {
     icon: Layers,
     title: "Flooring",
+    to: "/products/flooring",
     description:
       "Distributor of Turkish laminate flooring (HDF) — offering a wide collection of styles and grades.",
     features: ["AGT", "TerraClick", "VarioClick"],
@@ -54,18 +60,20 @@ const products = [
   {
     icon: Armchair,
     title: "Furniture",
+    to: "/products/furniture",
     description:
       "Quality furniture sourced and crafted to complement our wood and flooring collections — for homes, offices, and commercial spaces.",
     features: [
       "Kitchens",
-      "Dressign Rooms",
+      "Dressing Rooms",
       "Cabinets",
       "TV Units",
     ],
   },
   {
-    icon: DoorOpen,
+    icon: Settings2,
     title: "Custom Manufacturing",
+    to: "/products/custom",
     description:
       "With our own factory, we can produce fully customized wood products built to your exact specifications — any design, dimension, or finish.",
     features: [
@@ -110,9 +118,10 @@ export function Services() {
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div
+            <Link
               key={index}
-              className="group bg-gradient-to-br from-[#2D1F1A] to-[#1A120F] rounded-3xl p-10 hover:shadow-2xl hover:shadow-[#C4A57B]/10 transition-all duration-500 border border-[#C4A57B]/15 hover:border-[#C4A57B]/30 hover:-translate-y-2"
+              to={product.to}
+              className="group bg-gradient-to-br from-[#2D1F1A] to-[#1A120F] rounded-3xl p-10 hover:shadow-2xl hover:shadow-[#C4A57B]/10 transition-all duration-500 border border-[#C4A57B]/15 hover:border-[#C4A57B]/30 hover:-translate-y-2 block"
             >
               <div className="inline-flex items-center justify-center size-16 bg-[#C4A57B]/10 rounded-2xl mb-6 group-hover:bg-[#C4A57B] group-hover:scale-110 transition-all duration-500 border border-[#C4A57B]/20">
                 <product.icon className="size-8 text-[#C4A57B] group-hover:text-[#0A0806] transition-colors duration-500" />
@@ -143,7 +152,7 @@ export function Services() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Link>
           ))}
         </div>
 

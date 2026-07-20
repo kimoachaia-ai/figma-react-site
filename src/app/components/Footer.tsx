@@ -41,12 +41,12 @@ export function Footer() {
                 <Instagram className="size-5 text-[#C4A57B] hover:text-[#0A0806]" />
               </a>
               <a
-                href="https://www.achaiawood.com"
+                href="https://maps.app.goo.gl/uQvk5nmmGU2pHfNb8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="size-11 bg-[#2D1F1A] rounded-full flex items-center justify-center hover:bg-[#C4A57B] transition-all duration-300 hover:scale-110 border border-[#C4A57B]/20"
               >
-                <Globe className="size-5 text-[#C4A57B] hover:text-[#0A0806]" />
+                <MapPin className="size-5 text-[#C4A57B] hover:text-[#0A0806]" />
               </a>
             </div>
           </div>
