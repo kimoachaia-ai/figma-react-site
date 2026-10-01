@@ -1,38 +1,56 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router";
 import { Root } from "./Root";
-import { Home } from "./pages/Home";
-import { ContactPage } from "./pages/ContactPage";
-import { DoorsPage } from "./pages/products/DoorsPage";
-import { SkinDoorsPage } from "./pages/products/doors/SkinDoorsPage";
-import { FlushDoorsPage } from "./pages/products/doors/FlushDoorsPage";
-import { LacquerDoorsPage } from "./pages/products/doors/LacquerDoorsPage";
-import { SteelDoorsPage } from "./pages/products/doors/SteelDoorsPage";
-import { SmartSolutionsPage } from "./pages/products/doors/SmartSolutionsPage";
-import { PvcDoorsPage } from "./pages/products/doors/PvcDoorsPage";
-import { LumberVeneerPage } from "./pages/products/LumberVeneerPage";
-import { FlooringPage } from "./pages/products/FlooringPage";
-import { FurniturePage } from "./pages/products/FurniturePage";
-import { CustomPage } from "./pages/products/CustomPage";
+
+const Home             = lazy(() => import("./pages/Home").then(m => ({ default: m.Home })));
+const ContactPage      = lazy(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })));
+const DoorsPage        = lazy(() => import("./pages/products/DoorsPage").then(m => ({ default: m.DoorsPage })));
+const SkinDoorsPage    = lazy(() => import("./pages/products/doors/SkinDoorsPage").then(m => ({ default: m.SkinDoorsPage })));
+const FlushDoorsPage   = lazy(() => import("./pages/products/doors/FlushDoorsPage").then(m => ({ default: m.FlushDoorsPage })));
+const LacquerDoorsPage = lazy(() => import("./pages/products/doors/LacquerDoorsPage").then(m => ({ default: m.LacquerDoorsPage })));
+const SteelDoorsPage   = lazy(() => import("./pages/products/doors/SteelDoorsPage").then(m => ({ default: m.SteelDoorsPage })));
+const SmartSolutionsPage = lazy(() => import("./pages/products/doors/SmartSolutionsPage").then(m => ({ default: m.SmartSolutionsPage })));
+const PvcDoorsPage     = lazy(() => import("./pages/products/doors/PvcDoorsPage").then(m => ({ default: m.PvcDoorsPage })));
+const LumberVeneerPage = lazy(() => import("./pages/products/LumberVeneerPage").then(m => ({ default: m.LumberVeneerPage })));
+const FlooringPage     = lazy(() => import("./pages/products/FlooringPage").then(m => ({ default: m.FlooringPage })));
+const FurniturePage    = lazy(() => import("./pages/products/FurniturePage").then(m => ({ default: m.FurniturePage })));
+const CustomPage       = lazy(() => import("./pages/products/CustomPage").then(m => ({ default: m.CustomPage })));
+
+function Fallback() {
+  return (
+    <div className="min-h-screen bg-[#0A0806] flex items-center justify-center">
+      <div className="size-8 rounded-full border-2 border-[#C4A57B]/30 border-t-[#C4A57B] animate-spin" />
+    </div>
+  );
+}
+
+function withSuspense(Component: React.ComponentType) {
+  return (
+    <Suspense fallback={<Fallback />}>
+      <Component />
+    </Suspense>
+  );
+}
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
     children: [
-      { index: true, Component: Home },
-      { path: "contact", Component: ContactPage },
-      { path: "products/doors", Component: DoorsPage },
-      { path: "products/doors/skin", Component: SkinDoorsPage },
-      { path: "products/doors/flush", Component: FlushDoorsPage },
-      { path: "products/doors/lacquer", Component: LacquerDoorsPage },
-      { path: "products/doors/steel", Component: SteelDoorsPage },
-      { path: "products/doors/smart-solutions", Component: SmartSolutionsPage },
-      { path: "products/doors/pvc", Component: PvcDoorsPage },
-      { path: "products/doors/folding", element: <Navigate to="/products/doors/smart-solutions" replace /> },
-      { path: "products/lumber-veneer", Component: LumberVeneerPage },
-      { path: "products/flooring", Component: FlooringPage },
-      { path: "products/furniture", Component: FurniturePage },
-      { path: "products/custom", Component: CustomPage },
+      { index: true,                            element: withSuspense(Home) },
+      { path: "contact",                        element: withSuspense(ContactPage) },
+      { path: "products/doors",                 element: withSuspense(DoorsPage) },
+      { path: "products/doors/skin",            element: withSuspense(SkinDoorsPage) },
+      { path: "products/doors/flush",           element: withSuspense(FlushDoorsPage) },
+      { path: "products/doors/lacquer",         element: withSuspense(LacquerDoorsPage) },
+      { path: "products/doors/steel",           element: withSuspense(SteelDoorsPage) },
+      { path: "products/doors/smart-solutions", element: withSuspense(SmartSolutionsPage) },
+      { path: "products/doors/pvc",             element: withSuspense(PvcDoorsPage) },
+      { path: "products/doors/folding",         element: <Navigate to="/products/doors/smart-solutions" replace /> },
+      { path: "products/lumber-veneer",         element: withSuspense(LumberVeneerPage) },
+      { path: "products/flooring",              element: withSuspense(FlooringPage) },
+      { path: "products/furniture",             element: withSuspense(FurniturePage) },
+      { path: "products/custom",                element: withSuspense(CustomPage) },
     ],
   },
 ]);

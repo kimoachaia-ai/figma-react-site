@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { createPortal } from "react-dom";
 import { Link } from "react-router";
-import { ChevronLeft, ArrowRight, Shuffle, Ruler, Palette, Layers, MessageCircle, X, ZoomIn } from "lucide-react";
+import { ChevronLeft, ArrowRight, Shuffle, Ruler, Palette, Layers, MessageCircle, ZoomIn } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { ImageLightbox } from "../../../components/ImageLightbox";
 
 const IMAGES = [
   "https://lh3.googleusercontent.com/d/1EE2iUaG3m0mdnBfVr53zEMLSEl5J9sqc",
@@ -35,50 +35,6 @@ const highlightDefs = [
   { icon: Layers,  titleKey: "smartSolutions.h3_title", bodyKey: "smartSolutions.h3_body" },
 ];
 
-function Lightbox({ src, index, total, onClose, onNav }: {
-  src: string; index: number; total: number;
-  onClose: () => void; onNav: (i: number) => void;
-}) {
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className="absolute top-5 right-5 size-10 bg-[#1A120F] hover:bg-[#C4A57B] text-[#C4A57B] hover:text-[#0A0806] rounded-full flex items-center justify-center border border-[#C4A57B]/30 transition-all duration-200 z-10"
-      >
-        <X className="size-5" />
-      </button>
-      {total > 1 && (
-        <button
-          onClick={(e) => { e.stopPropagation(); onNav((index - 1 + total) % total); }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 size-11 bg-[#1A120F]/90 hover:bg-[#C4A57B] text-[#C4A57B] hover:text-[#0A0806] rounded-full flex items-center justify-center border border-[#C4A57B]/30 transition-all duration-200 z-10"
-        >
-          <ChevronLeft className="size-5" />
-        </button>
-      )}
-      <img
-        src={src}
-        alt=""
-        className="max-w-[90vw] max-h-[88vh] rounded-2xl shadow-2xl object-contain"
-        onClick={(e) => e.stopPropagation()}
-      />
-      {total > 1 && (
-        <button
-          onClick={(e) => { e.stopPropagation(); onNav((index + 1) % total); }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 size-11 bg-[#1A120F]/90 hover:bg-[#C4A57B] text-[#C4A57B] hover:text-[#0A0806] rounded-full flex items-center justify-center border border-[#C4A57B]/30 transition-all duration-200 z-10"
-        >
-          <ArrowRight className="size-5" />
-        </button>
-      )}
-      <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[#C4A57B] text-sm bg-[#0A0806]/70 px-4 py-1.5 rounded-full backdrop-blur-sm">
-        {index + 1} / {total}
-      </span>
-    </div>,
-    document.body
-  );
-}
 
 export function SmartSolutionsPage() {
   const { t } = useTranslation();
@@ -278,12 +234,11 @@ export function SmartSolutionsPage() {
 
       {/* Lightbox */}
       {lightboxIndex !== null && (
-        <Lightbox
-          src={IMAGES[lightboxIndex]}
+        <ImageLightbox
+          images={IMAGES}
           index={lightboxIndex}
-          total={IMAGES.length}
           onClose={() => setLightboxIndex(null)}
-          onNav={setLightboxIndex}
+          onNavigate={setLightboxIndex}
         />
       )}
     </div>
