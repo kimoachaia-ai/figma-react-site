@@ -1,7 +1,10 @@
 import { Factory, Sparkles, Globe, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function About() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="about"
@@ -34,7 +37,7 @@ export function About() {
                 1950
               </p>
               <p className="text-[#8B7355] text-sm tracking-widest uppercase mt-1">
-                Founded in Egypt
+                {t('about.founded')}
               </p>
             </div>
           </div>
@@ -43,7 +46,7 @@ export function About() {
           <div className="space-y-8 lg:pl-8">
             <div>
               <span className="text-[#C4A57B] text-sm tracking-widest uppercase font-medium">
-                Our Story
+                {t('about.badge')}
               </span>
               <h2
                 className="text-5xl leading-tight text-[#D4C5B0] mt-4 mb-6"
@@ -52,34 +55,15 @@ export function About() {
                   fontWeight: 600,
                 }}
               >
-                Over 75 Years of Wood Excellence in Egypt
+                {t('about.title')}
               </h2>
               <div className="w-20 h-1 bg-[#C4A57B] rounded-full" />
             </div>
 
             <div className="space-y-6 text-[#8B7355] leading-relaxed text-lg">
-              <p>
-                Founded in 1950, Antoine Youssef Achaia Sons is
-                one of Egypt's oldest and most trusted names in
-                wood trading and manufacturing. For over seven
-                decades, we have supplied the Egyptian market
-                with premium wood products sourced from around
-                the world.
-              </p>
-              <p>
-                We operate our own factory, allowing us to
-                maintain strict quality control across
-                everything we produce — from doors to MDF
-                panels, plywood, block board, and natural
-                veneer. Our steel and Turkish steel-wood doors
-                bring durability alongside refined style.
-              </p>
-              <p>
-                As a major distributor of laminate flooring —
-                including AGT, TerraClick, VarioClick we offer
-                many different thickness and resistance options
-                to suit every budget and design vision.
-              </p>
+              <p>{t('about.p1')}</p>
+              <p>{t('about.p2')}</p>
+              <p>{t('about.p3')}</p>
             </div>
 
             {/* Features Grid */}
@@ -96,10 +80,10 @@ export function About() {
                       fontWeight: 600,
                     }}
                   >
-                    Our Own Factory
+                    {t('about.feat1_title')}
                   </h4>
                   <p className="text-sm text-[#8B7355]">
-                    In-house manufacturing
+                    {t('about.feat1_sub')}
                   </p>
                 </div>
               </div>
@@ -116,10 +100,10 @@ export function About() {
                       fontWeight: 600,
                     }}
                   >
-                    Premium Quality
+                    {t('about.feat2_title')}
                   </h4>
                   <p className="text-sm text-[#8B7355]">
-                    Imported raw materials
+                    {t('about.feat2_sub')}
                   </p>
                 </div>
               </div>
@@ -136,10 +120,10 @@ export function About() {
                       fontWeight: 600,
                     }}
                   >
-                    Competetive Pricing
+                    {t('about.feat3_title')}
                   </h4>
                   <p className="text-sm text-[#8B7355]">
-                    Always Tracking Market Prices
+                    {t('about.feat3_sub')}
                   </p>
                 </div>
               </div>
@@ -156,10 +140,10 @@ export function About() {
                       fontWeight: 600,
                     }}
                   >
-                    75+ Years
+                    {t('about.feat4_title')}
                   </h4>
                   <p className="text-sm text-[#8B7355]">
-                    Trusted since 1950
+                    {t('about.feat4_sub')}
                   </p>
                 </div>
               </div>

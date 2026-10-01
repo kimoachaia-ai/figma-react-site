@@ -1,40 +1,13 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import flooringImg from "../../imports/parquet_home_page_me.png";
 import kitchenImg from "../../imports/ChatGPT_Image_Jun_17__2026__01_19_10_PM.png";
 import veneerImg from "../../imports/veneer_sheets.jpg";
 
-const featuredItem = {
-  title: "Laminate Flooring",
-  category: "Flooring",
-  to: "/products/flooring",
-  image: flooringImg,
-};
-
-const gridItems = [
-  {
-    title: "Steel & Wood Door Range",
-    category: "Doors",
-    to: "/products/doors",
-    image:
-      "https://images.unsplash.com/photo-1536160885591-301854e2ed04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBkb29ycyUyMGludGVyaW9yJTIwZGVzaWdufGVufDF8fHx8MTc4Mzk0ODYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
-  },
-  {
-    title: "Custom Kitchens & Cabinetry",
-    category: "Furniture",
-    to: "/products/furniture",
-    image: kitchenImg,
-  },
-  {
-    title: "Wood & Veneer",
-    category: "Lumber & Veneer",
-    to: "/products/lumber-veneer",
-    image: veneerImg,
-  },
-];
-
 function CardOverlay({ category, title }: { category: string; title: string }) {
+  const { t } = useTranslation();
   return (
     <>
       <div className="absolute inset-0 bg-gradient-to-t from-[#0A0806]/95 via-[#0A0806]/40 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
@@ -50,7 +23,7 @@ function CardOverlay({ category, title }: { category: string; title: string }) {
             {title}
           </h3>
           <div className="flex items-center gap-2 text-[#C4A57B] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <span className="text-sm">View Products</span>
+            <span className="text-sm">{t('portfolio.view_products')}</span>
             <ArrowUpRight className="size-5" />
           </div>
         </div>
@@ -63,6 +36,36 @@ function CardOverlay({ category, title }: { category: string; title: string }) {
 }
 
 export function Portfolio() {
+  const { t } = useTranslation();
+
+  const featuredItem = {
+    title: t('portfolio.featured_title'),
+    category: t('portfolio.featured_category'),
+    to: "/products/flooring",
+    image: flooringImg,
+  };
+
+  const gridItems = [
+    {
+      title: t('portfolio.item1_title'),
+      category: t('portfolio.item1_category'),
+      to: "/products/doors",
+      image: "https://images.unsplash.com/photo-1536160885591-301854e2ed04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHx3b29kZW4lMjBkb29ycyUyMGludGVyaW9yJTIwZGVzaWdufGVufDF8fHx8MTc4Mzk0ODYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    },
+    {
+      title: t('portfolio.item2_title'),
+      category: t('portfolio.item2_category'),
+      to: "/products/furniture",
+      image: kitchenImg,
+    },
+    {
+      title: t('portfolio.item3_title'),
+      category: t('portfolio.item3_category'),
+      to: "/products/lumber-veneer",
+      image: veneerImg,
+    },
+  ];
+
   return (
     <section
       id="portfolio"
@@ -72,17 +75,16 @@ export function Portfolio() {
         {/* Header */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <span className="text-[#C4A57B] text-sm tracking-widest uppercase font-medium">
-            Product Gallery
+            {t('portfolio.badge')}
           </span>
           <h2
             className="text-5xl leading-tight text-[#D4C5B0] mt-4 mb-6"
             style={{ fontFamily: "Cormorant, serif", fontWeight: 600 }}
           >
-            A Glimpse of What We Offer
+            {t('portfolio.title')}
           </h2>
           <p className="text-[#8B7355] text-lg leading-relaxed">
-            From elegant wood doors to laminate flooring, veneer to finished
-            kitchens — explore the range Achaia Wood has delivered since 1950.
+            {t('portfolio.subtitle')}
           </p>
         </div>
 
@@ -120,13 +122,13 @@ export function Portfolio() {
         {/* CTA */}
         <div className="text-center mt-16">
           <p className="text-[#8B7355] mb-6 text-lg">
-            Ready to bring your vision to life?
+            {t('portfolio.cta_text')}
           </p>
           <a
             href="#contact"
             className="inline-flex items-center gap-3 bg-[#C4A57B] text-[#0A0806] px-9 py-5 rounded-full hover:bg-[#D4C5B0] transition-all shadow-2xl shadow-[#C4A57B]/10 hover:shadow-[#C4A57B]/20 hover:-translate-y-1 duration-300"
           >
-            <span className="text-lg font-medium">Start Your Project</span>
+            <span className="text-lg font-medium">{t('portfolio.cta_btn')}</span>
             <ArrowUpRight className="size-5" />
           </a>
         </div>

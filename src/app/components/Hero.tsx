@@ -1,9 +1,13 @@
 import { ArrowRight, Calendar, Shield } from "lucide-react";
+import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import flooringImg from "../../imports/parquet_home_page_me.png";
 import kitchenImg from "../../imports/ChatGPT_Image_Jun_17__2026__01_19_10_PM.png";
 
 export function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="home"
@@ -27,7 +31,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 bg-[#2D1F1A] backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#C4A57B]/20">
               <Calendar className="size-4 text-[#C4A57B]" />
               <span className="text-[#D4C5B0] text-sm tracking-wide">
-                Egypt's Wood Specialist Since 1950
+                {t('hero.badge')}
               </span>
             </div>
 
@@ -39,38 +43,34 @@ export function Hero() {
                 fontWeight: 600,
               }}
             >
-              Premium Wood,{" "}
+              {t('hero.title1')}{" "}
               <span className="text-[#C4A57B] italic block mt-2">
-                Doors & Flooring
+                {t('hero.title2')}
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl text-[#8B7355] leading-relaxed">
-              Antoine Youssef Achaia Sons — one of Egypt's
-              oldest trading and manufacturing companies in
-              wood. From panels and lumber to fine doors and
-              Laminated floors, we supply the quality your
-              project deserves.
+              {t('hero.subtitle')}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-5 pt-4">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center gap-3 bg-[#C4A57B] text-[#0A0806] px-9 py-5 rounded-full hover:bg-[#D4C5B0] transition-all shadow-2xl shadow-[#C4A57B]/10 hover:shadow-[#C4A57B]/20 hover:-translate-y-1 duration-300"
               >
                 <span className="text-lg font-medium">
-                  Request a Quote
+                  {t('hero.cta_quote')}
                 </span>
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#services"
+              </Link>
+              <button
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
                 className="inline-flex items-center gap-3 bg-[#2D1F1A] text-[#C4A57B] px-9 py-5 rounded-full hover:bg-[#3E2723] transition-all border border-[#C4A57B]/30 duration-300"
               >
-                <span className="text-lg">Our Products</span>
-              </a>
+                <span className="text-lg">{t('hero.cta_products')}</span>
+              </button>
             </div>
 
             {/* Trust Indicators */}
@@ -87,10 +87,10 @@ export function Hero() {
                       fontWeight: 600,
                     }}
                   >
-                    75+ Years
+                    {t('hero.stat1_value')}
                   </p>
                   <p className="text-sm text-[#8B7355]">
-                    In Business Since 1950
+                    {t('hero.stat1_label')}
                   </p>
                 </div>
               </div>
@@ -106,10 +106,10 @@ export function Hero() {
                       fontWeight: 600,
                     }}
                   >
-                    Our Own Factory
+                    {t('hero.stat2_value')}
                   </p>
                   <p className="text-sm text-[#8B7355]">
-                    Manufacturing & Trading
+                    {t('hero.stat2_label')}
                   </p>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export function Hero() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block">
         <div className="flex flex-col items-center gap-2 text-[#8B7355] animate-bounce">
           <span className="text-xs tracking-widest uppercase">
-            Scroll
+            {t('hero.scroll')}
           </span>
           <div className="w-px h-12 bg-gradient-to-b from-[#C4A57B] to-transparent" />
         </div>

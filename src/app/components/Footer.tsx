@@ -1,7 +1,11 @@
-import { Facebook, MapPin, Globe, Instagram, Phone } from 'lucide-react';
+import { Facebook, MapPin, Instagram, Phone } from 'lucide-react';
+import { Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import achaiaLogo from "../../imports/achaia_wood-logo__1_.png";
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#0A0806] text-[#8B7355] border-t border-[#C4A57B]/15">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
@@ -15,11 +19,10 @@ export function Footer() {
               </h3>
             </div>
             <p className="text-[#8B7355] leading-relaxed mb-2 text-sm">
-              Antoine Youssef Achaia Sons
+              {t('footer.company')}
             </p>
             <p className="text-[#8B7355] leading-relaxed mb-6">
-              One of Egypt's oldest wood trading and manufacturing companies.
-              Supplying premium doors, panels, flooring, and furniture since 1950.
+              {t('footer.description')}
             </p>
 
             {/* Social Links */}
@@ -54,37 +57,42 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-xl mb-6 text-[#D4C5B0]" style={{ fontFamily: 'Cormorant, serif', fontWeight: 600 }}>
-              Quick Links
+              {t('footer.quick_links')}
             </h4>
             <ul className="space-y-3 text-[#8B7355]">
-              <li><a href="#home" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">Home</a></li>
-              <li><a href="#about" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">About Us</a></li>
-              <li><a href="#services" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">Products</a></li>
-              <li><a href="#portfolio" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">Gallery</a></li>
-              <li><a href="#contact" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">Contact</a></li>
+              <li><a href="#home" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">{t('nav.home')}</a></li>
+              <li><a href="#about" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">{t('nav.about')}</a></li>
+              <li><a href="#services" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">{t('nav.products')}</a></li>
+              <li><a href="#contact" className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">{t('nav.contact')}</a></li>
             </ul>
           </div>
 
           {/* Products */}
           <div>
             <h4 className="text-xl mb-6 text-[#D4C5B0]" style={{ fontFamily: 'Cormorant, serif', fontWeight: 600 }}>
-              Our Products
+              {t('footer.products_label')}
             </h4>
             <ul className="space-y-3 text-[#8B7355]">
-              <li>Wood & Steel Doors</li>
-              <li>Plywood & Block Board</li>
-              <li>MDF & Melamine</li>
-              <li>Natural & Engineered Veneer</li>
-              <li>Laminate Flooring</li>
-              <li>Furniture</li>
-              <li>Custom Manufacturing</li>
+              {[
+                { labelKey: "nav.doors", to: "/products/doors" },
+                { labelKey: "nav.flooring", to: "/products/flooring" },
+                { labelKey: "nav.lumber", to: "/products/lumber-veneer" },
+                { labelKey: "nav.furniture", to: "/products/furniture" },
+                { labelKey: "nav.custom", to: "/products/custom" },
+              ].map(({ labelKey, to }) => (
+                <li key={to}>
+                  <Link to={to} className="hover:text-[#C4A57B] transition-colors inline-block hover:translate-x-1 duration-300">
+                    {t(labelKey)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
             <h4 className="text-xl mb-6 text-[#D4C5B0]" style={{ fontFamily: 'Cormorant, serif', fontWeight: 600 }}>
-              Find Us
+              {t('footer.contact_label')}
             </h4>
             <ul className="space-y-4 text-[#8B7355]">
               <li className="flex items-start gap-3">
@@ -125,7 +133,7 @@ export function Footer() {
         <div className="border-t border-[#C4A57B]/15 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[#8B7355] text-sm">
             <p>
-              © {new Date().getFullYear()} Antoine Youssef Achaia Sons. All rights reserved. Est. 1950 — Egypt.
+              © {new Date().getFullYear()} {t('footer.company')}. {t('footer.rights')} Est. 1950 — Egypt.
             </p>
             <div className="flex gap-8">
               <a href="https://www.achaiawood.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#C4A57B] transition-colors">
