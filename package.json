@@ -24,7 +24,6 @@
     "tailwindcss": "4.1.12",
     "vite": "6.3.5",
     "vite-plugin-sitemap": "latest",
-    "vite-plugin-prerender": "1.0.8"
   },
   "peerDependencies": {
     "react": "18.3.1",
