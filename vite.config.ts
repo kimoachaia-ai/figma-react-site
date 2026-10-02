@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import Sitemap from 'vite-plugin-sitemap' // 1. Added the import
+import Sitemap from 'vite-plugin-sitemap'
+import vitePrerender from 'vite-plugin-prerender' // 1. Import it
 
 function figmaAssetResolver() {
   return {
@@ -17,17 +18,22 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: '/', // Keep this as '/' for ://achaiawood.com
+  base: '/',
 
   plugins: [
     figmaAssetResolver(),
     react(),
     tailwindcss(),
-    // 2. Added the Sitemap plugin configuration
     Sitemap({
-      hostname: 'https://achaiawood.com', 
-      // If you are using React Router for other pages, add them here:
-      // dynamicRoutes: ['/about', '/contact', '/gallery'] 
+      hostname: 'https://achaiawood.com',
+    }),
+    // 2. Add the prerender configuration
+    vitePrerender({
+      staticDir: path.join(__dirname, 'dist'),
+      routes: ['/'], // Add any other public routes like ['/', '/about']
+      renderer: new vitePrerender.PuppeteerRenderer({
+        renderAfterTime: 3000, // Gives your app 3 seconds to execute JS/animations before taking the HTML snapshot
+      }),
     }),
   ],
   resolve: {
