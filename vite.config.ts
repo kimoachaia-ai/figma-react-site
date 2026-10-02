@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
+import Sitemap from 'vite-plugin-sitemap' // 1. Added the import
 
 function figmaAssetResolver() {
   return {
@@ -22,6 +23,12 @@ export default defineConfig({
     figmaAssetResolver(),
     react(),
     tailwindcss(),
+    // 2. Added the Sitemap plugin configuration
+    Sitemap({
+      hostname: 'https://achaiawood.com', 
+      // If you are using React Router for other pages, add them here:
+      // dynamicRoutes: ['/about', '/contact', '/gallery'] 
+    }),
   ],
   resolve: {
     alias: {
