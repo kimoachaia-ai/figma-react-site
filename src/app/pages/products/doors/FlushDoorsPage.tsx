@@ -67,7 +67,7 @@ const products: DoorProduct[] = [
     id: "flush-7",
     name: "Flush Door 7",
     tag: "", // TODO: "Red Oak" or "Walnut"
-    variants: [{ image: "https://lh3.googleusercontent.com/d/1pPt31RtNmRGr0AgtaMTEeY2f1KV3g_HY", color: "" }],
+    variants: [{ image: "https://lh3.googleusercontent.com/d/1oqzhc_l8mV-vQgqzKq3DkK7JfPNYa6_6", color: "" }],
     description: "",
     specs: ["Honeycomb Core", "Wood Veneer"],
     veneerOptions: ["Red Oak", "Walnut"],
@@ -76,7 +76,7 @@ const products: DoorProduct[] = [
     id: "flush-8",
     name: "Flush Door 8",
     tag: "", // TODO: "Red Oak" or "Walnut"
-    variants: [{ image: "https://lh3.googleusercontent.com/d/1pZLvNvZkOfPmvDQpWak7_CdHXzklSLHM", color: "" }],
+    variants: [{ image: "https://lh3.googleusercontent.com/d/1pPt31RtNmRGr0AgtaMTEeY2f1KV3g_HY", color: "" }],
     description: "",
     specs: ["Honeycomb Core", "Wood Veneer"],
     veneerOptions: ["Red Oak", "Walnut"],
@@ -84,6 +84,15 @@ const products: DoorProduct[] = [
   {
     id: "flush-9",
     name: "Flush Door 9",
+    tag: "", // TODO: "Red Oak" or "Walnut"
+    variants: [{ image: "https://lh3.googleusercontent.com/d/1pZLvNvZkOfPmvDQpWak7_CdHXzklSLHM", color: "" }],
+    description: "",
+    specs: ["Honeycomb Core", "Wood Veneer"],
+    veneerOptions: ["Red Oak", "Walnut"],
+  },
+  {
+    id: "flush-10",
+    name: "Flush Door 10",
     tag: "", // TODO: "Red Oak" or "Walnut"
     variants: [{ image: "https://lh3.googleusercontent.com/d/1ti7P-fNb6hM1x50cRr_jlyujdwwkxLxC", color: "" }],
     description: "",
