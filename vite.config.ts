@@ -3,6 +3,8 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import Sitemap from 'vite-plugin-sitemap'
+// @ts-ignore - Ignore missing type declarations for web builds if needed
+import { htmlPrerender } from 'vite-plugin-html-prerender'
 
 function figmaAssetResolver() {
   return {
@@ -17,6 +19,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // Your base path remains '/' since you are pointing directly to achaiawood.com
   base: '/',
 
   plugins: [
@@ -26,6 +29,11 @@ export default defineConfig({
     Sitemap({
       hostname: 'https://achaiawood.com',
     }),
+    htmlPrerender({
+      staticDir: path.join(__dirname, 'dist'),
+      // Tell it to render the main landing page
+      routes: ['/'], 
+    })
   ],
   resolve: {
     alias: {
