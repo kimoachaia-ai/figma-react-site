@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Achaia Wood</title>
+    <!--
+      GitHub Pages SPA redirect trick.
+      When GitHub Pages returns 404 for a client-side route, this page
+      encodes the intended path into the query string and redirects to the
+      root index.html, which decodes it and calls history.replaceState.
+
+      segmentCount = 0  → custom domain (e.g. achaiawood.com)
+      segmentCount = 1  → project site  (e.g. username.github.io/repo-name)
+    -->
+    <script>
+      var segmentCount = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+        l.pathname.slice(1).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

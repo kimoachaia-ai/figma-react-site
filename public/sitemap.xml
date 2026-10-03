@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://achaiawood.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/contact"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors/flush</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors/flush"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors/flush"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors/skin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors/skin"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors/skin"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors/lacquer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors/lacquer"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors/lacquer"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors/steel</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors/steel"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors/steel"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors/pvc</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors/pvc"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors/pvc"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/doors/smart-solutions</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/doors/smart-solutions"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/doors/smart-solutions"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/flooring</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/flooring"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/flooring"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/lumber-veneer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/lumber-veneer"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/lumber-veneer"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/furniture</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/furniture"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/furniture"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://achaiawood.com/products/custom</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://achaiawood.com/products/custom"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://achaiawood.com/products/custom"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
