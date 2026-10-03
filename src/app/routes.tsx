@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate } from "react-router";
 import { Root } from "./Root";
+import { Home } from "./pages/Home";
 
-const Home             = lazy(() => import("./pages/Home").then(m => ({ default: m.Home })));
 const ContactPage      = lazy(() => import("./pages/ContactPage").then(m => ({ default: m.ContactPage })));
 const DoorsPage        = lazy(() => import("./pages/products/DoorsPage").then(m => ({ default: m.DoorsPage })));
 const SkinDoorsPage    = lazy(() => import("./pages/products/doors/SkinDoorsPage").then(m => ({ default: m.SkinDoorsPage })));
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
     path: "/",
     Component: Root,
     children: [
-      { index: true,                            element: withSuspense(Home) },
+      { index: true,                            Component: Home },
       { path: "contact",                        element: withSuspense(ContactPage) },
       { path: "products/doors",                 element: withSuspense(DoorsPage) },
       { path: "products/doors/skin",            element: withSuspense(SkinDoorsPage) },
