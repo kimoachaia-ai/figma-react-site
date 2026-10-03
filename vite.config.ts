@@ -3,8 +3,6 @@ import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import Sitemap from 'vite-plugin-sitemap'
-// @ts-ignore
-import vitePrerender from 'vite-plugin-prerender'
 
 function figmaAssetResolver() {
   return {
@@ -27,12 +25,6 @@ export default defineConfig({
     tailwindcss(),
     Sitemap({
       hostname: 'https://achaiawood.com',
-    }),
-    vitePrerender({
-      // The absolute path to the vite-outputted app to prerender.
-      staticDir: path.join(__dirname, 'dist'),
-      // Routes to render into static HTML files
-      routes: ['/'], 
     }),
   ],
   resolve: {
